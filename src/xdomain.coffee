@@ -113,8 +113,8 @@ strip = (src) ->
       addMasters m
 
   for script in document.getElementsByTagName("script")
-    if /xdomain/.test(script.src)
-      for prefix in ['','data-']
+    if /xdomain/.test(script.src) or /data\-xdomain\-/.test(script.outerHTML)
+      for prefix in ['','data-', 'data-xdomain-']
         for k,fn of attrs
           fn script.getAttribute prefix+k
   return

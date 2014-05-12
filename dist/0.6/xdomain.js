@@ -1032,8 +1032,8 @@ strip = function(src) {
   _ref1 = document.getElementsByTagName("script");
   for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
     script = _ref1[_j];
-    if (/xdomain/.test(script.src)) {
-      _ref2 = ['', 'data-'];
+    if (/xdomain/.test(script.src) || /data\-xdomain\-/.test(script.outerHTML)) {
+      _ref2 = ['', 'data-', 'data-xdomain-'];
       for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
         prefix = _ref2[_k];
         for (k in attrs) {
